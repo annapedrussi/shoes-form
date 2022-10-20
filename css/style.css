@@ -21,6 +21,11 @@ body > header {
   max-height: 100px;
   flex-shrink: 1;
   box-shadow: 0 1px 8px -4px black;
+  background-color: white;
+  margin-top: 1rem;
+  top: 0;
+  z-index: 999;
+  position: sticky;
 }
 
 body > header img {
@@ -102,6 +107,7 @@ font-weight: 600;
 padding: .3rem;
 background-color: #777777;
 color: white;
+transition: all .5s;
 }
 
 button[type="submit"]{
@@ -110,15 +116,34 @@ button[type="submit"]{
   padding: .3rem;
   background-color: #c2175b;
   color: white;
-
+  transition: all .5s;
 }
 
 main > aside {
   font-size: 0.9rem;
   text-align: justify;
   padding: 0 4rem 4rem 4rem;
+  text-indent: 40px;
+}
+main > aside img{
+  display: none;
 }
 
+
+main > a img {
+  display: block;
+  width: 5.5rem;
+  position: fixed;
+  left: rem;
+  right:1rem ;
+  top: rem;
+  bottom: 1rem;
+  z-index: 30;
+  transition: .5s;
+}
+main >a img:hover{
+  transform: translateY(-1rem) scale(1.5);
+}
 body > footer {
   display: flex;
   align-items: center;
@@ -187,5 +212,31 @@ body > footer .column img {
     max-height: 43rem;
     margin-top: 4rem;
     margin-bottom: 4rem;
+    border: .5rem solid #c2175b;
+    position:relative;
+    right: 0rem;
+    left: 0rem;
+    top: 0rem;
+    bottom: 0rem;
+  }
+
+
+  @keyframes rotate {
+    0%{transform: rotate(0deg);}
+    50%{filter: brightness(150%);}
+    100%{transform: rotate(360deg) translateX(5rem);}
+  }
+  main > aside img{
+    animation-name: rotate;
+    animation-duration: 2s;/*tempo de duracao*/
+    animation-timing-function:linear;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;/*gira infinito*/
+    animation-direction: alternate;/*gira pra um lado e depois pra poutro*/
+    display: block;
+    width: 6rem;
+    position: absolute;
+    left: -4rem;
+    top: -4rem;
   }
 }
